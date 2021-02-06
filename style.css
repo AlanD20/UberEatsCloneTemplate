@@ -1,0 +1,621 @@
+:root {
+  --bg-color: #fa9269;
+  --black: #000;
+  --hover-black: #1a1a1a;
+  --active-black: #333;
+  --white: #fff;
+  --hover-white: #ccc;
+  --bg-second: #f6f6f6;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+* > img {
+  width: 100%;
+  object-fit: cover;
+}
+* > a {
+  color: var(--black);
+}
+html {
+  font-size: 12px;
+}
+body {
+  overflow-y: scroll;
+  font-family: sans-serif;
+}
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.navLeft {
+  background-color: rgb(0 0 0 / 60%);
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 35;
+}
+.navLeftContainer {
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 70%);
+}
+.navLeft-open {
+  animation: opening 400ms linear;
+}
+.navLeft-close {
+  animation: closing 400ms linear;
+}
+@keyframes opening {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes closing {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+.leftNav_top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem;
+  gap: 1rem;
+}
+.leftNav_top a {
+  text-decoration: none;
+}
+.signin-Black {
+  width: 100%;
+  height: 50px;
+}
+.leftNav_bottom {
+  margin-block-start: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.leftNav_bottom .uberApp {
+  padding: 2rem;
+}
+.leftNav_bottom_logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+}
+.navTop {
+  display: flex;
+  padding: 1rem 0.6rem;
+  align-items: center;
+  gap: 4rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 25;
+  transition: background 250ms ease-in-out;
+}
+.navTop .btn:last-child {
+  margin-inline-start: auto;
+}
+.navTop-Active {
+  background-color: var(--white);
+  box-shadow: 2px 0 5px rgb(0 0 0 / 60%);
+}
+.navTop-Active .btn {
+  background-color: var(--bg-second);
+}
+.title {
+  gap: 2.4rem;
+}
+.ham {
+  height: 24px;
+}
+.ham:hover {
+  cursor: pointer;
+}
+.hamburger {
+  display: block;
+  position: relative;
+  transform: translateY(10px);
+}
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  width: 21px;
+  height: 3.1px;
+  border-radius: 50px;
+  background-color: #000;
+  cursor: pointer;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.hamburger::after {
+  transform: translateY(-6px);
+}
+.hamburger::before {
+  transform: translateY(6px);
+}
+.btn {
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 1rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 50px;
+  transition: background 150ms;
+  margin-inline-end: 0.5rem;
+  border: none;
+  outline: none;
+  box-shadow: -1px 2px 4px rgb(0 0 0 / 15%);
+}
+.btn:hover,
+.btn:focus {
+  background-color: var(--hover-white);
+  cursor: pointer;
+}
+.btn-small {
+  background-color: var(--hover-white);
+  color: var(--black);
+  font-size: 1rem;
+  padding: 0.3rem 0.8rem;
+  padding-inline-start: 2rem;
+  border-radius: 50px;
+  transition: background 150ms;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.btn-small:hover,
+.btn-small:focus {
+  background-color: #f0f0f0;
+}
+.btn-black {
+  font-size: 1rem;
+
+  font-weight: 600;
+  background-color: var(--black);
+  color: var(--white);
+  transition: background 250ms ease-out;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.btn-black:hover,
+.btn-black:focus {
+  background-color: var(--hover-black);
+}
+.btn-black:active {
+  background-color: var(--active-black);
+}
+.mobBtn {
+  position: relative;
+}
+.mobLogo {
+  position: absolute;
+  left: 12px;
+}
+.androidImg {
+  width: 25%;
+  left: 6px;
+}
+
+.main {
+  display: grid;
+  grid-template: max-content auto / repeat(2, 1fr);
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-color);
+  z-index: 1;
+}
+.leftMain,
+.rightMain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  height: 100%;
+}
+.leftMain {
+  grid-area: 1/1/4/4;
+  left: 0;
+}
+.rightMain {
+  grid-area: 1/3/4/4;
+  right: 0;
+}
+.findAddress {
+  gap: 0.5rem;
+}
+.addressContainer {
+  grid-area: 2/1/4/3;
+  padding: 1rem 0.6rem;
+  z-index: 2;
+  justify-self: start;
+  align-self: center;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1.7rem;
+}
+.simpleText {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+.addressTitle {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-block-end: 1rem;
+}
+.fieldWrap {
+  position: relative;
+}
+.addressInput {
+  background-color: var(--bg-second);
+  width: 275px;
+  height: 50px;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.5rem 0.4rem 0.5rem 3.5rem;
+  outline: none;
+  border: none;
+  transition: border 300ms ease-out;
+  border-block-end: 3px solid var(--white);
+}
+.addressInput:focus {
+  border-block-end: 3px solid var(--black);
+}
+.indicator {
+  position: absolute;
+  bottom: 16px;
+  left: 12px;
+}
+.deliverTime {
+  position: relative;
+  font-size: 1rem;
+  gap: 1rem;
+  background-color: var(--bg-second);
+  height: 50px;
+  padding-inline: 1.2rem;
+  user-select: none;
+}
+.deliverTime:hover {
+  cursor: pointer;
+}
+.deliverTimeBox-Active {
+  display: flex !important;
+  transition: opacity 150ms;
+}
+.deliverTimeBox {
+  display: none;
+  justify-content: center;
+  background-color: var(--white);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 1rem 0;
+  opacity: 0;
+}
+.deliverTimeBox ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1rem;
+}
+.deliverTimeBox ul li {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 1rem 1rem;
+  transition: background 150ms;
+}
+.deliverTimeBox ul li:hover {
+  background-color: var(--hover-white);
+}
+.deliverTimeBox ul li svg {
+  border-radius: 50px;
+  border: 2px solid var(--bg-second);
+}
+.arrows {
+  width: 100px;
+  height: 35px;
+  flex-wrap: nowrap;
+}
+.findFood {
+  height: 50px;
+  padding-inline: 1.2rem;
+}
+.uberApp {
+  width: 100%;
+  padding: 2rem 4rem;
+  gap: 0.7rem;
+}
+.uberApp_greenLogo {
+  width: 50px;
+  height: 50px;
+}
+.uberApp > p:nth-child(2) {
+  font-weight: 600;
+  font-size: 2rem;
+}
+.foods {
+  padding: 2rem 2.5rem;
+}
+.food-card {
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+.food-card-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 30%;
+  min-width: 250px;
+}
+.food-card-item p {
+  color: var(--active-black);
+}
+.textTitle {
+  font-weight: 600;
+  font-size: 2.5rem;
+  margin-block-end: 2rem;
+}
+.foodImg {
+  height: 10rem;
+}
+.leftArrow {
+  transform: rotate(180deg);
+}
+
+.arrows > * {
+  width: 100%;
+  height: 100%;
+}
+.arrows > *:hover {
+  cursor: pointer;
+}
+.arrows svg:hover {
+  fill: var(--active-black);
+}
+.titleFoods {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.countries {
+  padding: 2rem 2.5rem;
+  margin-block-end: 3rem;
+}
+
+footer img {
+  width: 200px;
+}
+footer a,
+footer span {
+  color: var(--hover-white);
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+.footerTop {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.stores {
+  display: flex;
+  gap: 1rem;
+}
+.store {
+  width: 100px;
+}
+.store:hover {
+  cursor: pointer;
+}
+.country-list {
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+  column-gap: 4rem;
+  row-gap: 1.5rem;
+  font-size: 1.2rem;
+}
+footer {
+  background-color: var(--black);
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.footerLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.footerMiddle,
+.footerRight {
+  display: flex;
+  gap: 1rem;
+}
+.topFooterRight {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.langImg {
+  fill: var(--white);
+  width: 15px;
+}
+.footerLine {
+  background-color: var(--hover-white);
+  width: 100%;
+  height: 2px;
+}
+
+.FooterPrivacy {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.socials {
+  display: flex;
+  gap: 2rem;
+}
+.socials svg {
+  fill: var(--white);
+  width: 20px;
+}
+.socials svg:hover {
+  cursor: pointer;
+}
+.footerPrivacyRight {
+  display: flex;
+  align-self: flex-end;
+}
+.privacyRights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footerRights {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-end;
+}
+
+@media screen and (min-width: 550px) {
+  .navLeftContainer {
+    width: 30%;
+  }
+  .navTop,
+  .addressContainer {
+    padding: 2rem 2.5rem;
+  }
+  .food-card-item {
+    min-width: 350px;
+  }
+  .topFooterRight {
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+  .store {
+    width: 150px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+  .navLeftContainer {
+    width: 20%;
+  }
+  .main {
+    grid-template: max-content auto / repeat(3, 1fr);
+  }
+  .leftMain {
+    grid-area: 1/1/4/2;
+  }
+  .addressInput {
+    width: 400px;
+  }
+  .indicator {
+    bottom: 15px;
+    left: 15px;
+  }
+  .country-list {
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+    column-gap: 8rem;
+    row-gap: 1.5rem;
+  }
+  footer {
+    padding: 4rem 2.5rem;
+    gap: 2rem;
+  }
+  .footerTop {
+    flex-wrap: nowrap;
+    gap: 1rem;
+  }
+  .footerLeft {
+    row-gap: 10rem;
+  }
+  .footerMiddle,
+  .footerRight {
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+  .topFooterRight {
+    margin-inline-start: auto;
+    margin-inline-end: 15%;
+    gap: 6rem;
+  }
+  .FooterPrivacy {
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+  .privacyRights {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .footerPrivacyRight {
+    gap: 2rem;
+  }
+}
+.mySocials{
+	margin-block-start: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: .5rem;
+}
+.mySocials a{
+	padding: 1rem 2rem;
+	color: maroon;
+	background-color: #ddd;
+	text-decoration: none;
+	font-size: 1rem;
+	transition: color 250ms ease-in-out;
+	cursor: pointer;
+}
+.mySocials a:hover{
+color: rgb(190, 13, 13);
+background-color: rgb(206, 194, 194);
+}
